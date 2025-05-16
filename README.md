@@ -1,3 +1,19 @@
+Food Management System Project
+
+A React-based web application for managing food orders, featuring:
+
+- Components: FoodList, FoodItem, OrderModal
+- Tech: React, Node.js, [insert database]
+- Tools: GitHub Copilot (AI-powered code completion)
+
+Key Features:
+
+- Food item listing and ordering
+- Customizable orders
+- Efficient development with GitHub Copilot
+
+Get Started: Clone, install, and run the application. Contributions welcome!
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
