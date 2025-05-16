@@ -1,5 +1,8 @@
-Food Management System Project
 
+
+* Food Management System Project *
+
+![Food Management System Banner](https://github.com/shreyay4060/food-mangement/blob/main/demo.png)
 A React-based web application for managing food orders, featuring:
 
 - Components: FoodList, FoodItem, OrderModal
