@@ -30,17 +30,19 @@ const Carousel = () => {
   const next = () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <div
+    <div className="carousel"
       style={{
         width: "100%",
         maxWidth: "700px",
-        margin: "40px auto 0 auto",
+        margin: "10px auto 0 auto",
         borderRadius: "20px",
         overflow: "hidden",
         boxShadow: "0 8px 32px rgba(221,36,118,0.13)",
         position: "relative",
         background: "#fff",
-        minHeight: "320px",
+        minHeight: "40px",
+        padding: "5px",
+        marginBottom: "3rem",
       }}
     >
       <img
@@ -48,9 +50,10 @@ const Carousel = () => {
         alt={images[index].caption}
         style={{
           width: "100%",
-          height: "320px",
+          height: "360px",
           objectFit: "cover",
           transition: "opacity 0.5s",
+          // marginBottom: "3 rem",
         }}
       />
       <div
@@ -123,6 +126,20 @@ const Carousel = () => {
       >
         &#8594;
       </button>
+      <style>{`
+        @media (max-width: 700px) {
+        .carousel{
+        
+            width: 90vw !important;
+            // height: 200px !important;
+            padding: 1rem !important;
+          }
+          img {
+            height: 150px !important;
+            mtargin: 3rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

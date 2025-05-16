@@ -32,9 +32,9 @@ const OrderModal = ({ food, onClose, onSubmit }) => {
           background: "#fff",
           borderRadius: "18px",
           boxShadow: "0 8px 32px rgba(221,36,118,0.18)",
-          padding: "2.5rem 2rem",
-          minWidth: "320px",
-          maxWidth: "90vw",
+          padding: "1.5rem 1rem",
+          minWidth: "220px",
+          maxWidth: "95vw",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -127,6 +127,14 @@ const OrderModal = ({ food, onClose, onSubmit }) => {
         >
           Place Order
         </button>
+        <style>{`
+          @media (max-width: 600px) {
+            form {
+              min-width: 90vw !important;
+              padding: 1rem !important;
+            }
+          }
+        `}</style>
       </form>
     </div>
   );

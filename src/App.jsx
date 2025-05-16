@@ -3,12 +3,28 @@ import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
 import FoodList from "./components/FoodList";
 import OrderModal from "./components/OrderModal";
+import Login from "./components/Login";
+import { auth, signOut } from "./firebase";
 
 function App() {
   const [search, setSearch] = useState("");
   const [order, setOrder] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [selectedFood, setSelectedFood] = useState(null);
+  const [user, setUser] = useState(auth.currentUser);
+
+  // Handle login
+  const handleLogin = (user) => setUser(user);
+
+  // Handle logout
+  const handleLogout = async () => {
+    await signOut(auth);
+    setUser(null);
+  };
+
+  if (!user) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   // Handle order button click
   const handleOrderClick = (food) => {
@@ -32,10 +48,11 @@ function App() {
         overflowX: "hidden",
         display: "flex",
         flexDirection: "column",
+        padding: "5px", // Responsive padding
       }}
     >
-      <Navbar search={search} setSearch={setSearch} />
-      <div style={{ height: "100px" }} /> {/* Spacer for navbar */}
+      <Navbar search={search} setSearch={setSearch} onLogout={handleLogout} />
+      <div style={{ height: "80px" }} /> {/* Spacer for navbar */}
       <Carousel />
       <FoodList search={search} onOrder={handleOrderClick} />
       {showModal && (
@@ -48,7 +65,7 @@ function App() {
       {order && (
         <div
           style={{
-            margin: "2rem auto 1rem auto",
+            margin: "0px auto 1rem auto",
             maxWidth: "600px",
             background: "#fff",
             borderRadius: "18px",
